@@ -1,0 +1,30 @@
+c:\users\canier\documents\visual studio 2013\Projects\推箱子\推箱子\bin\Debug\推箱子.exe.config
+C:\Users\Canier\documents\visual studio 2013\Projects\推箱子\推箱子\bin\Debug\推箱子.exe
+C:\Users\Canier\documents\visual studio 2013\Projects\推箱子\推箱子\bin\Debug\推箱子.pdb
+C:\Users\Canier\documents\visual studio 2013\Projects\推箱子\推箱子\obj\Debug\推箱子.csprojResolveAssemblyReference.cache
+C:\Users\Canier\documents\visual studio 2013\Projects\推箱子\推箱子\obj\Debug\推箱子.Form1.resources
+C:\Users\Canier\documents\visual studio 2013\Projects\推箱子\推箱子\obj\Debug\推箱子.Properties.Resources.resources
+C:\Users\Canier\documents\visual studio 2013\Projects\推箱子\推箱子\obj\Debug\推箱子.csproj.GenerateResource.Cache
+C:\Users\Canier\documents\visual studio 2013\Projects\推箱子\推箱子\obj\Debug\推箱子.exe
+C:\Users\Canier\documents\visual studio 2013\Projects\推箱子\推箱子\obj\Debug\推箱子.pdb
+C:\Users\Canier\documents\visual studio 2013\Projects\推箱子\推箱子\obj\Debug\推箱子.MapConfig.resources
+D:\Users\ivandgetic\Documents\Visual Studio 2013\Projects\推箱子\推箱子\bin\Debug\推箱子.exe.config
+D:\Users\ivandgetic\Documents\Visual Studio 2013\Projects\推箱子\推箱子\obj\Debug\推箱子.exe
+D:\Users\ivandgetic\Documents\Visual Studio 2013\Projects\推箱子\推箱子\obj\Debug\推箱子.pdb
+D:\Users\ivandgetic\Documents\Visual Studio 2013\Projects\推箱子\推箱子\bin\Debug\推箱子.exe
+D:\Users\ivandgetic\Documents\Visual Studio 2013\Projects\推箱子\推箱子\bin\Debug\推箱子.pdb
+D:\Users\ivandgetic\Documents\Visual Studio 2013\Projects\推箱子\推箱子\obj\Debug\推箱子.csprojResolveAssemblyReference.cache
+D:\Users\ivandgetic\Documents\Visual Studio 2013\Projects\推箱子\推箱子\obj\Debug\推箱子.Form1.resources
+D:\Users\ivandgetic\Documents\Visual Studio 2013\Projects\推箱子\推箱子\obj\Debug\推箱子.MapConfig.resources
+D:\Users\ivandgetic\Documents\Visual Studio 2013\Projects\推箱子\推箱子\obj\Debug\推箱子.Properties.Resources.resources
+D:\Users\ivandgetic\Documents\Visual Studio 2013\Projects\推箱子\推箱子\obj\Debug\推箱子.csproj.GenerateResource.Cache
+C:\Users\Canier\Desktop\推箱子\推箱子\推箱子\bin\Debug\推箱子.exe.config
+C:\Users\Canier\Desktop\推箱子\推箱子\推箱子\obj\Debug\推箱子.exe
+C:\Users\Canier\Desktop\推箱子\推箱子\推箱子\obj\Debug\推箱子.pdb
+C:\Users\Canier\Desktop\推箱子\推箱子\推箱子\bin\Debug\推箱子.exe
+C:\Users\Canier\Desktop\推箱子\推箱子\推箱子\bin\Debug\推箱子.pdb
+C:\Users\Canier\Desktop\推箱子\推箱子\推箱子\obj\Debug\推箱子.csprojResolveAssemblyReference.cache
+C:\Users\Canier\Desktop\推箱子\推箱子\推箱子\obj\Debug\推箱子.Form1.resources
+C:\Users\Canier\Desktop\推箱子\推箱子\推箱子\obj\Debug\推箱子.MapConfig.resources
+C:\Users\Canier\Desktop\推箱子\推箱子\推箱子\obj\Debug\推箱子.Properties.Resources.resources
+C:\Users\Canier\Desktop\推箱子\推箱子\推箱子\obj\Debug\推箱子.csproj.GenerateResource.Cache
