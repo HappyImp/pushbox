@@ -28,3 +28,12 @@ C:\Users\Canier\Desktop\推箱子\推箱子\推箱子\obj\Debug\推箱子.Form1.
 C:\Users\Canier\Desktop\推箱子\推箱子\推箱子\obj\Debug\推箱子.MapConfig.resources
 C:\Users\Canier\Desktop\推箱子\推箱子\推箱子\obj\Debug\推箱子.Properties.Resources.resources
 C:\Users\Canier\Desktop\推箱子\推箱子\推箱子\obj\Debug\推箱子.csproj.GenerateResource.Cache
+D:\Users\ivandgetic\Documents\GitHub\pushbox\推箱子\bin\Debug\推箱子.exe.config
+D:\Users\ivandgetic\Documents\GitHub\pushbox\推箱子\obj\Debug\推箱子.exe
+D:\Users\ivandgetic\Documents\GitHub\pushbox\推箱子\obj\Debug\推箱子.pdb
+D:\Users\ivandgetic\Documents\GitHub\pushbox\推箱子\bin\Debug\推箱子.exe
+D:\Users\ivandgetic\Documents\GitHub\pushbox\推箱子\bin\Debug\推箱子.pdb
+D:\Users\ivandgetic\Documents\GitHub\pushbox\推箱子\obj\Debug\推箱子.Form1.resources
+D:\Users\ivandgetic\Documents\GitHub\pushbox\推箱子\obj\Debug\推箱子.MapConfig.resources
+D:\Users\ivandgetic\Documents\GitHub\pushbox\推箱子\obj\Debug\推箱子.Properties.Resources.resources
+D:\Users\ivandgetic\Documents\GitHub\pushbox\推箱子\obj\Debug\推箱子.csproj.GenerateResource.Cache

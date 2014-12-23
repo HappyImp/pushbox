@@ -38,7 +38,6 @@ namespace 推箱子
             {
                 fs.Close();
                 return false;
-               
             }
             fs.Close();
             return true;
@@ -51,40 +50,57 @@ namespace 推箱子
                 for (int j = 0; j < s.GetLength(1); j++)
                     s[i, j] = (Status)br.ReadByte();
             time = 0;
+            timer1.Start();
             Cancel.Clear();
             br.Close();
             fs.Close();
         }
         public void DrawMap()
         {
-            
-                Bitmap bit = new Bitmap(450, 450);
-                //     封装 GDI+ 位图，此位图由图形图像及其特性的像素数据
-                Graphics g = Graphics.FromImage(bit);
-                for (int i = 0; i < s.GetLength(0); i++)
-                    for (int j = 0; j < s.GetLength(1); j++)
+
+            Bitmap bit = new Bitmap(450, 450);
+            //     封装 GDI+ 位图，此位图由图形图像及其特性的像素数据
+            Graphics g = Graphics.FromImage(bit);
+            for (int i = 0; i < s.GetLength(0); i++)
+                for (int j = 0; j < s.GetLength(1); j++)
+                {
+                    Image image = Image.FromFile(@"..\..\files\icon\" + s[i, j].ToString().Trim() + ".gif");
+                    if (s[i, j] == Status.Worker || s[i, j] == Status.down || s[i, j] == Status.left || s[i, j] == Status.right || s[i, j] == Status.up || s[i, j] == Status.WorkerInDestination)
                     {
-                        Image image = Image.FromFile(@"..\..\files\icon\" + s[i, j].ToString().Trim() + ".gif");
-                        if (s[i, j] == Status.Worker || s[i, j] == Status.down || s[i, j] == Status.left || s[i, j] == Status.right || s[i, j] == Status.up || s[i, j] == Status.WorkerInDestination)
-                        {
-                            manX = i;
-                            manY = j;
-                        }
-                        g.DrawImage(image, new Point(i * 30, j * 30));
+                        manX = i;
+                        manY = j;
                     }
-                pictureBox1.Image = Image.FromHbitmap(bit.GetHbitmap());
-                CountLable.Text = "第" + count.ToString() + "步";
-           
+                    g.DrawImage(image, new Point(i * 30, j * 30));
+                }
+            pictureBox1.Image = Image.FromHbitmap(bit.GetHbitmap());
+            CountLable.Text = "第" + count.ToString() + "步";
+
         }
-        private static void TimerEventProcessor(Object myObject,
-                                            EventArgs myEventArgs)
+
+        private static void TimerEventProcessor(Object myObject, EventArgs myEventArgs)
         {
             time += 1;
         }
+
+
+
+        private void TimeAdd()
+        {
+            while (true)
+            {
+                time++;
+                timeLabel.Text = "用时：" + time.ToString() + "秒";
+                Thread.Sleep(1000);
+            }
+        }
+
         public Form1()
         {
             InitializeComponent();
             timer1.Start();
+            //Thread thread = new Thread(new ThreadStart(TimeAdd));
+            //thread.IsBackground = true;
+            //thread.Start();
             if (shifou(pathcun))
             {
                 path = pathcun;
@@ -98,14 +114,12 @@ namespace 推箱子
             m.Show();
         }
 
-
-
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             Undo aa = new Undo();
             aa.n = new Status[15, 15];
-            for (int i = 0; i <15; i++)
-                for (int j = 0; j <15; j++)
+            for (int i = 0; i < 15; i++)
+                for (int j = 0; j < 15; j++)
                 {
                     aa.n[i, j] = s[i, j];
                 }
@@ -142,13 +156,26 @@ namespace 推箱子
             }
             if (e.KeyCode == Keys.Left)
             {
-                if(work.WorkMove(s, ref manX, ref manY, -1, 0))
+                if (work.WorkMove(s, ref manX, ref manY, -1, 0))
                 {
                     count++;
                     Cancel.Push(aa.n);
                 }
                 if (s[manX, manY] != Status.WorkerInDestination)
                     s[manX, manY] = Status.left;
+            }
+            if ((e.Control) && (e.KeyCode == Keys.Z))
+            {
+                try
+                {
+                    s = Cancel.Pop();
+                    count--;
+                    DrawMap();
+                }
+                catch
+                {
+                    MessageBox.Show("不可后退", "Error");
+                }
             }
             DrawMap();
             if (work.IsWin(s))
@@ -165,13 +192,33 @@ namespace 推箱子
             }
         }
 
+        private void LastBut_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Thisguan--;
+                path = "..\\..\\files\\map\\" + Thisguan.ToString() + ".map";
+                OpenMap(s, path);
+                time = 0;
+                timer1.Start();
+                Form1.count = 0;
+            }
+            catch (FileNotFoundException m)
+            {
+                MessageBox.Show("不存在此关卡", "警告");
+                Thisguan++;
+            }
+        }
+
         private void NextBut_Click(object sender, EventArgs e)
         {
             try
             {
                 Thisguan++;
-                path = "..\\..\\files\\map\\" + Thisguan.ToString() + ".map"; 
+                path = "..\\..\\files\\map\\" + Thisguan.ToString() + ".map";
                 OpenMap(s, path);
+                time = 0;
+                timer1.Start();
                 Form1.count = 0;
             }
             catch (FileNotFoundException m)
@@ -180,9 +227,6 @@ namespace 推箱子
                 Thisguan--;
             }
         }
-
-
-
 
         private void UndoBut_Click(object sender, EventArgs e)
         {
@@ -196,7 +240,7 @@ namespace 推箱子
             {
                 MessageBox.Show("不可后退", "Error");
             }
-           
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -214,26 +258,9 @@ namespace 推箱子
         private void timer1_Tick(object sender, EventArgs e)
         {
             time++;
-            label2.Text = "用时：" + time.ToString() + "秒";
+            timeLabel.Text = "用时：" + time.ToString() + "秒";
         }
 
-        private void toolStripButton1_Click(object sender, EventArgs e)
-        {
-           
-            try
-            {
-                Thisguan--;
-                path = "..\\..\\files\\map\\" + Thisguan.ToString() + ".map";
-                OpenMap(s, path);
-                time = 0;
-                Form1.count = 0;
-            }
-            catch (FileNotFoundException m)
-            {
-                MessageBox.Show("不存在此关卡", "警告");
-                Thisguan++;
-            }
-        }
 
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
@@ -254,7 +281,7 @@ namespace 推箱子
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
-        {   
+        {
             DialogResult MsgBoxResult;
             MsgBoxResult = MessageBox.Show("是否要保存，便于下次继续", "提示", MessageBoxButtons.YesNo,
                MessageBoxIcon.Exclamation);
@@ -266,9 +293,8 @@ namespace 推箱子
             {
                 FileStream st = new FileStream(pathcun, FileMode.Create);
                 st.Close();
-                Application.Exit();
             }
-        }
 
+        }
     }
 }
