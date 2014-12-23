@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Threading;
+using System.Media;
 
 namespace 推箱子
 {
@@ -29,6 +30,7 @@ namespace 推箱子
         static int time = 0;
         string path = "..\\..\\files\\map\\1.map";
         string pathcun = "..\\..\\files\\map\\cun.map";
+        string goodpath = "icon\\iconOriginal\\";
         Status[,] s = new Status[15, 15];
 
         public bool shifou(string path)
@@ -64,7 +66,7 @@ namespace 推箱子
             for (int i = 0; i < s.GetLength(0); i++)
                 for (int j = 0; j < s.GetLength(1); j++)
                 {
-                    Image image = Image.FromFile(@"..\..\files\icon\" + s[i, j].ToString().Trim() + ".gif");
+                    Image image = Image.FromFile("..\\..\\files\\"+goodpath + s[i, j].ToString().Trim() + ".gif");
                     if (s[i, j] == Status.Worker || s[i, j] == Status.down || s[i, j] == Status.left || s[i, j] == Status.right || s[i, j] == Status.up || s[i, j] == Status.WorkerInDestination)
                     {
                         manX = i;
@@ -93,14 +95,12 @@ namespace 推箱子
                 Thread.Sleep(1000);
             }
         }
-
+        SoundPlayer sp;
         public Form1()
         {
             InitializeComponent();
             timer1.Start();
-            //Thread thread = new Thread(new ThreadStart(TimeAdd));
-            //thread.IsBackground = true;
-            //thread.Start();
+           
             if (shifou(pathcun))
             {
                 path = pathcun;
@@ -176,6 +176,12 @@ namespace 推箱子
                 {
                     MessageBox.Show("不可后退", "Error");
                 }
+            }
+            if (e.KeyCode == Keys.G)
+            {
+                goodMethod();
+            }else if(e.KeyCode==Keys.B){
+                badMethod();
             }
             DrawMap();
             if (work.IsWin(s))
@@ -295,6 +301,29 @@ namespace 推箱子
                 st.Close();
             }
 
+        }
+
+        private void refresh_Click(object sender, EventArgs e)
+        {
+            OpenMap(s, path);
+        }
+
+        private void good_Click(object sender, EventArgs e)
+        {
+            goodMethod();
+        }
+
+        public void goodMethod() {
+            goodpath = "icon\\";
+            sp = new SoundPlayer(@"..\..\files\music\openMusic.wav");
+            sp.Load();
+            sp.PlayLooping();
+        }
+
+        public void badMethod()
+        {
+            goodpath = "icon\\iconOriginal\\";
+            sp.Stop();
         }
     }
 }

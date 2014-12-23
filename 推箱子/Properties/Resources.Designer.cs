@@ -63,9 +63,19 @@ namespace 推箱子.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
-        internal static System.Drawing.Bitmap last {
+        internal static System.Drawing.Bitmap last1 {
             get {
-                object obj = ResourceManager.GetObject("last", resourceCulture);
+                object obj = ResourceManager.GetObject("last1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap last2 {
+            get {
+                object obj = ResourceManager.GetObject("last2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
